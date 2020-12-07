@@ -7,10 +7,12 @@ namespace StrategyAlpha.Services
     public class ProductService
     {
         public decimal CalculateShippingCost(ProductDto productDto)
+        public decimal CalculateShippingCost(ShippingCompany shippingCompany)
         {
             const decimal standardShippingCost = 10m;
 
             switch (productDto.ShippingCompany)
+            switch (shippingCompany)
             {
                 case ShippingCompany.Ups:
                     return standardShippingCost * 1.11m;
